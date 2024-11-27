@@ -118,7 +118,7 @@ int esp_CryptHwMutexLock(wolfSSL_Mutex* mutex, TickType_t block_time) {
     ret = wc_LockMutex(mutex);
 #else
     ret = xSemaphoreTake(*mutex, block_time);
-    ESP_LOGV(TAG, "xSemaphoreTake 0x%x = %d", (intptr_t)*mutex, ret);
+    ESP_LOGI(TAG, "xSemaphoreTake 0x%x = %d", (intptr_t)*mutex, ret);
     if (ret == pdTRUE) {
         ret = ESP_OK;
     }
@@ -152,7 +152,7 @@ esp_err_t esp_CryptHwMutexUnLock(wolfSSL_Mutex* mutex) {
 #ifdef SINGLE_THREADED
     ret = wc_UnLockMutex(mutex);
 #else
-    ESP_LOGV(TAG, ">> xSemaphoreGive 0x%x", (intptr_t)*mutex);
+    ESP_LOGI(TAG, ">> xSemaphoreGive 0x%x", (intptr_t)*mutex);
     TaskHandle_t mutexHolder = xSemaphoreGetMutexHolder(*mutex);
 
     if (mutexHolder == NULL) {
@@ -163,11 +163,11 @@ esp_err_t esp_CryptHwMutexUnLock(wolfSSL_Mutex* mutex) {
     else {
         ret = xSemaphoreGive(*mutex);
         if (ret == pdTRUE) {
-            ESP_LOGV(TAG, "Success: give mutex 0x%x", (intptr_t)*mutex);
+            ESP_LOGI(TAG, "Success: give mutex 0x%x", (intptr_t)*mutex);
             ret = ESP_OK;
         }
         else {
-            ESP_LOGV(TAG, "Failed: give mutex 0x%x", (intptr_t)*mutex);
+            ESP_LOGI(TAG, "Failed: give mutex 0x%x", (intptr_t)*mutex);
             ret = ESP_FAIL;
         }
     }
