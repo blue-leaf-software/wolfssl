@@ -1370,7 +1370,7 @@ int esp_sha_try_hw_lock(WC_ESP32SHA* ctx)
             /* check to see if we had a prior fail and need to unroll enables */
         #ifdef WOLFSSL_ESP32_HW_LOCK_DEBUG
             ESP_LOGW(TAG, "Locking for ctx %x, current mutex_ctx_owner = %x",
-                           (uintptr_t)&ctx, esp_sha_mutex_ctx_owner());
+                           (uintptr_t)ctx, esp_sha_mutex_ctx_owner());
             ESP_LOGI(TAG, "ctx->lockDepth = %d", ctx->lockDepth);
         #endif
             if (ctx->mode == ESP32_SHA_INIT) {
