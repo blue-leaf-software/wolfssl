@@ -26943,7 +26943,7 @@ int  wolfSSL_get_chain_cert_pem(WOLFSSL_X509_CHAIN* chain, int idx,
     return WOLFSSL_FAILURE;
 #endif /* WOLFSSL_PEM_TO_DER || WOLFSSL_DER_TO_PEM */
 }
-
+#endif /* SESSION_CERTS */
 
 /* get session ID */
 WOLFSSL_ABI
@@ -26958,7 +26958,7 @@ const byte* wolfSSL_get_sessionID(const WOLFSSL_SESSION* session)
 }
 
 
-#endif /* SESSION_CERTS */
+
 
 #ifdef HAVE_FUZZER
 void wolfSSL_SetFuzzerCb(WOLFSSL* ssl, CallbackFuzzer cbf, void* fCtx)
