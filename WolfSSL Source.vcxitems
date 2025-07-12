@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{5caab120-4b96-4af0-b73c-dfc4bc33d073}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="$(MSBuildThisFileDirectory)wolfcrypt\src\aes_asm.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ml64.exe /c /Zi /Fo"$(OutDir)%(Filename).obj" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">ml64.exe /c /Zi /Fo"$(IntDir)%(Filename).obj" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename).obj</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">$(IntDir)%(Filename).obj</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ml64.exe /c /Zi /Fo"$(OutDir)%(Filename).obj" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">ml64.exe /c /Zi /Fo"$(IntDir)%(Filename).obj" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).obj</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">$(IntDir)%(Filename).obj</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="$(MSBuildThisFileDirectory)wolfcrypt\src\aes_gcm_asm.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ml64.exe /c /Zi /Fo"$(OutDir)%(Filename).obj" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">ml64.exe /c /Zi /Fo"$(IntDir)%(Filename).obj" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename).obj</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">$(IntDir)%(Filename).obj</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ml64.exe /c /Zi /Fo"$(OutDir)%(Filename).obj" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">ml64.exe /c /Zi /Fo"$(IntDir)%(Filename).obj" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).obj</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">$(IntDir)%(Filename).obj</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sp_x86_64_asm.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ml64.exe /c /Zi /Fo"$(OutDir)%(Filename).obj" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">ml64.exe /c /Zi /Fo"$(IntDir)%(Filename).obj" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename).obj</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">$(IntDir)%(Filename).obj</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ml64.exe /c /Zi /Fo"$(OutDir)%(Filename).obj" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">ml64.exe /c /Zi /Fo"$(IntDir)%(Filename).obj" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).obj</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">$(IntDir)%(Filename).obj</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\crl.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\dtls13.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\dtls.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\internal.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\wolfio.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\keys.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\ocsp.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\ssl.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tls.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tls13.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\aes.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\arc4.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\asn.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\blake2b.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\blake2s.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\camellia.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\chacha.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\chacha20_poly1305.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\cmac.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\coding.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\curve25519.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\curve448.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\cpuid.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\des3.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\dh.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\dsa.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\ecc.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\ed25519.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\ed448.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\error.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\fe_448.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\fe_low_mem.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\fe_operations.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\ge_448.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\ge_low_mem.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\ge_operations.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\hash.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\hmac.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\integer.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\kdf.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\logging.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\md2.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\md4.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\md5.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\memory.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\pkcs7.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\pkcs12.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\poly1305.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\pwdbased.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\random.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\rc2.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\ripemd.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\rsa.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sha.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sha256.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sha3.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sha512.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\signature.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sp_c32.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sp_c64.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sp_int.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\sp_x86_64.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\srp.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\tfm.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\wc_encrypt.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\wc_pkcs11.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\wc_port.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\wolfmath.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wolfcrypt\src\wolfevent.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)resource.h" />
+  </ItemGroup>
+  <ItemGroup Label="WolfResources">
+    <ResourceCompile Include="$(MSBuildThisFileDirectory)wolfssl.rc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

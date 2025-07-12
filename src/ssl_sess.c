@@ -4231,8 +4231,6 @@ long wolfSSL_CTX_sess_number(WOLFSSL_CTX* ctx)
 
 #endif
 
-#ifdef SESSION_CERTS
-
 /* get session ID */
 WOLFSSL_ABI
 const byte* wolfSSL_get_sessionID(const WOLFSSL_SESSION* session)
@@ -4244,8 +4242,6 @@ const byte* wolfSSL_get_sessionID(const WOLFSSL_SESSION* session)
 
     return NULL;
 }
-
-#endif
 
 #ifdef HAVE_EX_DATA
 
