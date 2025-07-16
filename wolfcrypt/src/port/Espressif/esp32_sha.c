@@ -1311,7 +1311,7 @@ int esp_sha_try_hw_lock(WC_ESP32SHA* ctx)
         }
     }
 
-#ifdef ESP_MONITOR_HW_TASK_LOCK
+#ifdef WOLFSSL_ESP32_HW_LOCK_DEBUG
     /* Nothing happening here other than messages based on mutex states */
     if (mutex_ctx_task == 0 || mutex_ctx_owner == 0) {
         /* no known stray mutex task owner */
@@ -1348,12 +1348,13 @@ int esp_sha_try_hw_lock(WC_ESP32SHA* ctx)
         } /* mutex_ctx_task is current task */
         else {
             ESP_LOGW(TAG, "Warning: sha mutex unlock from unexpected task.");
-            ESP_LOGW(TAG, "Locking task: 0x%x", (word32)mutex_ctx_task);
-            ESP_LOGW(TAG, "This xTaskGetCurrentTaskHandle: 0x%x",
-                          (word32)xTaskGetCurrentTaskHandle());
+            ESP_LOGW(TAG, "Locking task: 0x%x (%s)", (word32)mutex_ctx_task, pcTaskGetName(mutex_ctx_task));
+            ESP_LOGW(TAG, "This xTaskGetCurrentTaskHandle: 0x%x (%s)",
+                          (word32)xTaskGetCurrentTaskHandle(),
+                          pcTaskGetName(NULL));
         }
     }
-#endif /* ESP_MONITOR_HW_TASK_LOCK */
+#endif /* WOLFSSL_ESP32_HW_LOCK_DEBUG */
 
     /* check if this SHA has been operated as SW or HW, or not yet init */
     if (ctx->mode == ESP32_SHA_INIT) {
