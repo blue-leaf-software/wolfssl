@@ -740,6 +740,7 @@ esp_err_t esp_DisableWatchdog(void)
             rtc_wdt_disable();
         #elif defined(CONFIG_IDF_TARGET_ESP32C2) || \
               defined(CONFIG_IDF_TARGET_ESP32C3) || \
+              defined(CONFIG_IDF_TARGET_ESP32C5) || \
               defined(CONFIG_IDF_TARGET_ESP32C6) || \
               defined(CONFIG_IDF_TARGET_ESP32H2) || \
               defined(CONFIG_IDF_TARGET_ESP32P4)
@@ -791,6 +792,7 @@ esp_err_t esp_EnabledWatchdog(void)
             rtc_wdt_enable();
         #elif defined(CONFIG_IDF_TARGET_ESP32C2) || \
               defined(CONFIG_IDF_TARGET_ESP32C3) || \
+              defined(CONFIG_IDF_TARGET_ESP32C5) || \
               defined(CONFIG_IDF_TARGET_ESP32C6) || \
               defined(CONFIG_IDF_TARGET_ESP32H2) || \
               defined(CONFIG_IDF_TARGET_ESP32P4)
